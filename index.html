@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>최진영 | Jinyoung Choi — HCI · Data Science</title>
+<meta name="description" content="Chungnam National University — Human-Computer Interaction, Data Science, Human Digital Twin, Mental Health">
+<meta property="og:title" content="최진영 | Jinyoung Choi">
+<meta property="og:description" content="충남대학교 · HCI, Data Science, Human Digital Twin, Mental Health">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@400;600&family=IBM+Plex+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface2: #eef2f4;
+  --border: #d3dde2;
+  --border2: #b3c3cb;
+  --text: #182329;
+  --secondary: #354a55;
+  --muted: #6f8691;
+  --accent: #23495c;
+  --accent2: #4f7f93;
+  --accent-light: #eef3f5;
+  --accent-mid: #d0dee4;
+  --placeholder: #b5651d;
+  --serif: 'Libre Baskerville', 'Noto Serif KR', Georgia, serif;
+  --sans: 'Noto Sans KR', sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+html { scroll-behavior: smooth; font-size: 18px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+
+/* 아직 채우지 않은 칸 — 내용 입력 후 class="todo" 를 지우면 됩니다 */
+.todo {
+  color: var(--placeholder);
+  border-bottom: 1px dashed var(--placeholder);
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--accent);
+  height: 60px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px;
+}
+.nav-name { font-family: var(--serif); font-size: 1.05rem; color: var(--accent); white-space: nowrap; }
+.nav-right { display: flex; align-items: center; gap: 36px; }
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  font-size: 0.78rem; letter-spacing: 0.05em; color: var(--secondary);
+  text-decoration: none; transition: color 0.2s; white-space: nowrap;
+}
+.nav-links a:hover { color: var(--accent); }
+.lang-toggle { display: flex; border: 1px solid var(--border2); border-radius: 3px; overflow: hidden; }
+.lang-btn {
+  padding: 5px 13px; background: transparent; border: none; cursor: pointer;
+  color: var(--muted); font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em;
+}
+.lang-btn.active { background: var(--accent); color: #fff; }
+
+/* ── HERO ── */
+.hero {
+  padding: 112px 52px 80px;
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 240px 1fr; gap: 72px; align-items: start;
+}
+.hero-photo { position: relative; padding-top: 8px; }
+.hero-photo img, .photo-placeholder {
+  width: 100%; aspect-ratio: 3/4; object-fit: cover; object-position: top center;
+  display: block; border: 1px solid var(--border);
+}
+.photo-placeholder {
+  background: linear-gradient(160deg, var(--accent-light), var(--accent-mid));
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 3.2rem; color: var(--accent2);
+}
+.photo-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(35,73,92,0.85));
+  padding: 20px 16px 14px;
+}
+.photo-overlay-text { font-family: var(--mono); font-size: 0.65rem; color: rgba(255,255,255,0.9); letter-spacing: 0.08em; line-height: 1.6; }
+
+.aff-badges { display: flex; flex-direction: column; gap: 6px; margin-bottom: 22px; }
+.aff-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent-light); border: 1px solid var(--border2);
+  padding: 5px 14px; font-family: var(--mono); font-size: 0.68rem;
+  color: var(--accent); letter-spacing: 0.05em; width: fit-content;
+}
+.aff-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
+
+h1 {
+  font-family: var(--serif); font-size: clamp(2.4rem, 4.5vw, 3.6rem);
+  font-weight: 700; line-height: 1.1; color: var(--text); margin-bottom: 6px;
+}
+.hero-sub { font-family: var(--serif); font-size: 1.02rem; font-style: italic; color: var(--muted); margin-bottom: 26px; }
+.hero-divider { width: 48px; height: 2px; background: var(--accent2); margin-bottom: 22px; }
+.hero-bio { font-size: 0.93rem; color: var(--secondary); max-width: 560px; line-height: 1.95; margin-bottom: 26px; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.tag {
+  font-size: 0.73rem; padding: 4px 12px; background: var(--accent-light);
+  border: 1px solid var(--accent-mid); color: var(--accent); border-radius: 2px;
+}
+.contact-grid { display: grid; grid-template-columns: auto 1fr; gap: 4px 16px; align-items: center; margin-bottom: 24px; }
+.contact-label { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.contact-val { font-family: var(--mono); font-size: 0.78rem; color: var(--secondary); }
+.contact-val a { text-decoration: none; }
+.contact-val a:hover { text-decoration: underline; }
+.profile-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+.profile-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--accent);
+  text-decoration: none; border: 1px solid var(--accent); padding: 8px 18px;
+  transition: all 0.2s; letter-spacing: 0.04em;
+}
+.profile-btn:hover { background: var(--accent); color: #fff; }
+
+/* ── MAIN ── */
+main { max-width: 1120px; margin: 0 auto; padding: 0 52px 120px; }
+section { margin-bottom: 80px; scroll-margin-top: 76px; }
+.section-header {
+  display: flex; align-items: baseline; margin-bottom: 32px;
+  border-bottom: 2px solid var(--accent); padding-bottom: 14px;
+}
+.section-num { font-family: var(--mono); font-size: 0.65rem; color: var(--accent2); letter-spacing: 0.12em; margin-right: 14px; min-width: 28px; }
+.section-title { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--accent); }
+.section-note { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 14px; }
+
+/* ── TIMELINE ROWS (학력 · 경력 · 프로젝트 · 강연 · 교육) ── */
+.row {
+  display: grid; grid-template-columns: 180px 1fr; gap: 28px;
+  padding: 20px 0; border-bottom: 1px solid var(--border);
+}
+.row:last-child { border-bottom: none; }
+.row-period { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); padding-top: 3px; letter-spacing: 0.03em; line-height: 1.5; }
+.row-title { font-family: var(--serif); font-size: 0.98rem; font-weight: 700; color: var(--text); margin-bottom: 4px; line-height: 1.45; }
+.row-sub { font-size: 0.88rem; color: var(--secondary); margin-bottom: 2px; }
+.row-detail { font-size: 0.82rem; color: var(--muted); line-height: 1.8; }
+.chip {
+  display: inline-block; font-family: var(--mono); font-size: 0.66rem;
+  padding: 2px 8px; margin-top: 8px; background: var(--accent-light);
+  color: var(--accent); border: 1px solid var(--border2); letter-spacing: 0.04em;
+}
+
+/* ── PUBLICATIONS ── */
+.pub-stats { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
+.stat {
+  background: var(--accent-light); border: 1px solid var(--border2); border-radius: 4px;
+  padding: 12px 22px; text-align: center; min-width: 120px;
+}
+.stat-num { font-family: var(--serif); font-size: 1.35rem; font-weight: 700; color: var(--accent); }
+.stat-label { font-family: var(--mono); font-size: 0.64rem; color: var(--muted); letter-spacing: 0.06em; }
+.pub-group { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent2); margin: 26px 0 12px; }
+.pub-card {
+  border: 1px solid var(--border); border-left: 4px solid var(--accent);
+  padding: 20px 24px; margin-bottom: 12px; transition: box-shadow 0.2s, border-color 0.2s;
+}
+.pub-card:hover { border-left-color: var(--accent2); box-shadow: 0 2px 16px rgba(35,73,92,0.08); }
+.pub-title { font-family: var(--serif); font-size: 0.96rem; color: var(--text); margin-bottom: 6px; line-height: 1.55; }
+.pub-title a { color: inherit; text-decoration: none; }
+.pub-title a:hover { color: var(--accent); text-decoration: underline; }
+.pub-authors { font-size: 0.84rem; color: var(--secondary); margin-bottom: 8px; }
+.pub-authors b { font-weight: 500; color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.pub-meta { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.pub-badge { font-family: var(--mono); font-size: 0.62rem; padding: 2px 9px; background: var(--accent); color: #fff; letter-spacing: 0.07em; }
+.pub-badge.kci { background: var(--accent2); }
+.pub-badge.conf { background: #7c8f99; }
+.pub-venue { font-family: var(--mono); font-size: 0.74rem; color: var(--muted); }
+.pub-cite { font-family: var(--mono); font-size: 0.68rem; color: var(--muted); margin-left: auto; }
+.pub-link {
+  font-family: var(--mono); font-size: 0.68rem; color: var(--accent);
+  text-decoration: none; border: 1px solid var(--accent-mid); padding: 1px 8px;
+}
+.pub-link:hover { border-color: var(--accent); }
+
+/* ── AWARDS ── */
+.award-item {
+  display: grid; grid-template-columns: 56px 1fr auto; gap: 20px;
+  padding: 14px 0; border-bottom: 1px solid var(--border); align-items: baseline;
+}
+.award-item:last-child { border-bottom: none; }
+.award-year { font-family: var(--mono); font-size: 0.72rem; color: var(--accent2); }
+.award-name { font-size: 0.88rem; color: var(--text); font-weight: 400; line-height: 1.5; }
+.award-org { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); text-align: right; white-space: nowrap; }
+
+/* ── SKILLS ── */
+.skill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+.skill-block { border-top: 2px solid var(--accent-mid); padding-top: 12px; }
+.skill-label { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+.skill-list { font-size: 0.86rem; color: var(--secondary); line-height: 1.9; }
+
+/* ── CONTACT ── */
+.contact-section-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+.contact-block-label {
+  font-family: var(--mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+}
+.contact-block-content { font-size: 0.9rem; color: var(--secondary); line-height: 2.1; }
+.contact-block-content a { text-decoration: none; }
+.contact-block-content a:hover { text-decoration: underline; }
+
+/* ── FOOTER ── */
+footer { background: var(--accent); padding: 28px 52px; display: flex; justify-content: space-between; align-items: center; }
+.footer-name { font-family: var(--serif); font-size: 0.9rem; color: rgba(255,255,255,0.92); font-style: italic; }
+.footer-copy { font-family: var(--mono); font-size: 0.65rem; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; }
+
+/* ── LANG ── */
+.ko { display: block; } .en { display: none; }
+body.lang-en .ko { display: none; } body.lang-en .en { display: block; }
+span.ko { display: inline; } span.en { display: none; }
+body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; }
+
+/* ── MOBILE ── */
+@media (max-width: 860px) {
+  nav { padding: 0 16px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 88px 16px 56px; gap: 32px; }
+  .hero-photo { max-width: 200px; }
+  main { padding: 0 16px 80px; }
+  .row { grid-template-columns: 1fr; gap: 6px; }
+  .award-item { grid-template-columns: 48px 1fr; }
+  .award-org { display: none; }
+  .pub-cite { margin-left: 0; }
+  .contact-section-grid { grid-template-columns: 1fr; gap: 32px; }
+  footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name"><span class="ko">최진영</span><span class="en">Jinyoung Choi</span></div>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#education"><span class="ko">학력</span><span class="en">Education</span></a>
+      <a href="#experience"><span class="ko">경력</span><span class="en">Experience</span></a>
+      <a href="#publications"><span class="ko">논문</span><span class="en">Papers</span></a>
+      <a href="#projects"><span class="ko">연구</span><span class="en">Projects</span></a>
+      <a href="#awards"><span class="ko">수상</span><span class="en">Awards</span></a>
+      <a href="#talks"><span class="ko">발표</span><span class="en">Talks</span></a>
+      <a href="#skills"><span class="ko">역량</span><span class="en">Skills</span></a>
+      <a href="#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
+    </div>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="ko">KO</button>
+      <button class="lang-btn" data-lang="en">EN</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="top">
+  <div class="hero-photo">
+    <!-- 사진이 생기면 아래 div 를 <img src="photo.jpg" alt="최진영 Jinyoung Choi"> 로 바꾸세요 -->
+    <div class="photo-placeholder">JC</div>
+    <div class="photo-overlay">
+      <div class="photo-overlay-text">
+        <span class="ko">최진영<br>충남대학교</span>
+        <span class="en">Jinyoung Choi<br>Chungnam Nat'l Univ.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="aff-badges">
+      <div class="aff-badge">
+        <span class="aff-dot"></span>
+        <span class="ko">충남대학교 <span class="todo">[소속 학과 · 직위]</span></span>
+        <span class="en">Chungnam National University · <span class="todo">[Dept. · Position]</span></span>
+      </div>
+    </div>
+
+    <h1><span class="ko">최진영</span><span class="en">Jinyoung Choi</span></h1>
+    <div class="hero-sub">
+      <span class="ko">Jinyoung Choi · <span class="todo">[학위]</span></span>
+      <span class="en">최진영 · <span class="todo">[Degree]</span></span>
+    </div>
+    <div class="hero-divider"></div>
+
+    <p class="hero-bio ko">
+      웨어러블·생체신호 데이터를 활용해 사람의 감정과 정신건강 상태를 이해하고 예측하는 연구를 합니다.
+      인간-컴퓨터 상호작용(HCI), 데이터 사이언스, 휴먼 디지털 트윈을 결합해 일상에서 쓰일 수 있는 정신건강 지원 기술을 만드는 것이 목표입니다.
+    </p>
+    <p class="hero-bio en">
+      I study how wearable and physiological signals can be used to understand and predict people's emotions and mental health.
+      My work combines human-computer interaction, data science, and human digital twins toward mental-health support that works in everyday life.
+    </p>
+
+    <div class="hero-tags">
+      <span class="tag">Human-Computer Interaction</span>
+      <span class="tag">Data Science</span>
+      <span class="tag">Human Digital Twin</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Mental Health</span>
+      <span class="tag">Wearable Sensing</span>
+    </div>
+
+    <div class="contact-grid">
+      <span class="contact-label">Email</span>
+      <span class="contact-val todo">[이메일]@cnu.ac.kr</span>
+      <span class="contact-label">Office</span>
+      <span class="contact-val"><span class="ko">충남대학교, 대전</span><span class="en">Chungnam National University, Daejeon, Korea</span></span>
+    </div>
+
+    <div class="profile-btns">
+      <a class="profile-btn" href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <!-- 필요하면 추가: ORCID, GitHub, LinkedIn, CV PDF -->
+      <!-- <a class="profile-btn" href="cv.pdf" target="_blank">CV (PDF) ↓</a> -->
+    </div>
+  </div>
+</div>
+
+<main>
+
+<!-- 01 EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <span class="section-title"><span class="ko">학력</span><span class="en">Education</span></span>
+  </div>
+
+  <div class="row">
+    <div class="row-period todo">20XX – 20XX</div>
+    <div>
+      <div class="row-title"><span class="ko todo">[박사/석사] 컴퓨터공학</span><span class="en todo">[Ph.D./M.S.] in Computer Science and Engineering</span></div>
+      <div class="row-sub"><span class="ko">충남대학교</span><span class="en">Chungnam National University</span></div>
+      <div class="row-detail"><span class="ko">지도교수: 김형신 교수</span><span class="en">Advisor: Prof. Hyungshin Kim</span> · <span class="todo">[학위논문 제목]</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-period todo">20XX – 20XX</div>
+    <div>
+      <div class="row-title"><span class="ko todo">[학사] 전공</span><span class="en todo">[B.S.] Major</span></div>
+      <div class="row-sub todo">[학교]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <span class="section-title"><span class="ko">경력</span><span class="en">Experience</span></span>
+  </div>
+
+  <div class="row">
+    <div class="row-period todo">20XX – Present</div>
+    <div>
+      <div class="row-title todo">[직위 / Position]</div>
+      <div class="row-sub todo">[기관 / Organization]</div>
+      <div class="row-detail todo">[담당 업무 한두 줄]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <span class="section-title"><span class="ko">논문</span><span class="en">Publications</span></span>
+  </div>
+
+  <div class="pub-stats">
+    <div class="stat"><div class="stat-num">65</div><div class="stat-label">CITATIONS</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">H-INDEX</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">I10-INDEX</div></div>
+  </div>
+
+  <div class="pub-group"><span class="ko">국제 학술지</span><span class="en">International Journals</span></div>
+  <div class="pub-card">
+    <div class="pub-title"><a href="https://doi.org/10.3390/s22114174" target="_blank" rel="noopener">Depressed Mood Prediction of Elderly People with a Wearable Band</a></div>
+    <div class="pub-authors"><b>J. Choi</b>, S. Lee, S. Kim, D. Kim, H. Kim</div>
+    <div class="pub-meta">
+      <span class="pub-badge">SCIE</span>
+      <span class="pub-venue"><i>Sensors</i>, 22(11), 4174, 2022</span>
+      <a class="pub-link" href="https://doi.org/10.3390/s22114174" target="_blank" rel="noopener">DOI</a>
+      <span class="pub-cite">cited 53</span>
+    </div>
+  </div>
+
+  <div class="pub-group"><span class="ko">국내 학술지</span><span class="en">Domestic Journals</span></div>
+  <div class="pub-card">
+    <div class="pub-title">Study on Heart Rate Variability and PSD Analysis of PPG Data for Emotion Recognition</div>
+    <div class="pub-authors"><b>J. Choi</b>, H. Kim</div>
+    <div class="pub-meta">
+      <span class="pub-badge kci">KCI</span>
+      <span class="pub-venue"><i>Journal of Digital Contents Society</i>, 19(1), 103–112, 2018</span>
+      <span class="pub-cite">cited 11</span>
+    </div>
+  </div>
+
+  <div class="pub-group"><span class="ko">국제 학술대회</span><span class="en">International Conferences</span></div>
+  <div class="pub-card">
+    <div class="pub-title">Extending App Pre-Launch Service with Emotion Context</div>
+    <div class="pub-authors"><b>J. Choi</b>, J. Lee, H. Kim</div>
+    <div class="pub-meta">
+      <span class="pub-badge conf">CONF</span>
+      <span class="pub-venue">Proc. 2nd Int'l Conference on Internet of Things, Data and Cloud Computing (ICC), 2017</span>
+      <span class="pub-cite">cited 1</span>
+    </div>
+  </div>
+
+  <p class="section-note">
+    <span class="ko">인용 수는 Google Scholar 기준 (2026년 10월). 전체 목록은 </span><span class="en">Citation counts from Google Scholar (Oct 2026). Full list on </span><a href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar</a><span class="ko">에서 볼 수 있습니다.</span><span class="en">.</span>
+  </p>
+</section>
+
+<!-- 04 PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <span class="section-title"><span class="ko">연구 프로젝트</span><span class="en">Research Projects</span></span>
+  </div>
+
+  <div class="row">
+    <div class="row-period"><span class="todo">20XX – 20XX</span><br><span class="chip todo">[지원기관]</span></div>
+    <div>
+      <div class="row-title todo">[과제명]</div>
+      <div class="row-detail todo">[역할 및 주요 내용 한두 줄]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 AWARDS -->
+<section id="awards">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <span class="section-title"><span class="ko">수상</span><span class="en">Awards &amp; Honors</span></span>
+  </div>
+
+  <div class="award-item">
+    <span class="award-year todo">20XX</span>
+    <span class="award-name todo">[수상명]</span>
+    <span class="award-org todo">[수여기관]</span>
+  </div>
+</section>
+
+<!-- 06 TALKS & SERVICE -->
+<section id="talks">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <span class="section-title"><span class="ko">발표 및 활동</span><span class="en">Talks &amp; Service</span></span>
+  </div>
+
+  <div class="row">
+    <div class="row-period todo">20XX.XX</div>
+    <div>
+      <div class="row-title todo">[발표/강연/심사/조교 활동 제목]</div>
+      <div class="row-sub todo">[행사 · 기관]</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <span class="section-title"><span class="ko">기술 역량</span><span class="en">Skills</span></span>
+  </div>
+
+  <div class="skill-grid">
+    <div class="skill-block">
+      <div class="skill-label">Research</div>
+      <div class="skill-list">Physiological signal processing (PPG, HRV) · Emotion recognition · Mental-health prediction · User studies</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-label">Programming</div>
+      <div class="skill-list todo">[Python, PyTorch, ...]</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-label">Languages</div>
+      <div class="skill-list"><span class="ko">한국어 (모국어) · 영어</span><span class="en">Korean (native) · English</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">08</span>
+    <span class="section-title"><span class="ko">연락처</span><span class="en">Contact</span></span>
+  </div>
+
+  <div class="contact-section-grid">
+    <div>
+      <div class="contact-block-label">Address</div>
+      <div class="contact-block-content">
+        <span class="ko">34134 대전광역시 유성구 대학로 99<br>충남대학교 <span class="todo">[건물 · 호실]</span></span>
+        <span class="en">99 Daehak-ro, Yuseong-gu, Daejeon 34134, Korea<br>Chungnam National University, <span class="todo">[Bldg · Room]</span></span>
+      </div>
+    </div>
+    <div>
+      <div class="contact-block-label">Online</div>
+      <div class="contact-block-content">
+        Email · <span class="todo">[이메일]@cnu.ac.kr</span><br>
+        <a href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-name"><span class="ko">최진영</span><span class="en">Jinyoung Choi</span></div>
+  <div class="footer-copy">© 2026 · Chungnam National University</div>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('lang-en', lang === 'en');
+    document.documentElement.lang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+  }
+  document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+  try { const saved = localStorage.getItem('lang'); if (saved) setLang(saved); } catch (e) {}
+</script>
+</body>
+</html>
