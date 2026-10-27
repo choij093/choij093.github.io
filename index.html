@@ -170,6 +170,13 @@ section { margin-bottom: 80px; scroll-margin-top: 76px; }
 }
 .patent-country.us { background: #1565c0; }
 .patent-country.sw { background: var(--accent2); }
+.patent-country.cert { background: #7c8f99; font-size: 0.6rem; }
+.media-list { list-style: none; }
+.media-list li { padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 0.86rem; line-height: 1.6; }
+.media-list li:last-child { border-bottom: none; }
+.media-list a { color: var(--secondary); text-decoration: none; }
+.media-list a:hover { color: var(--accent); text-decoration: underline; }
+.media-list span { font-family: var(--mono); font-size: 0.7rem; color: var(--muted); margin-left: 6px; white-space: nowrap; }
 .patent-name { font-size: 0.9rem; color: var(--text); font-weight: 400; line-height: 1.6; }
 .patent-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
 
@@ -276,8 +283,10 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
       <a href="#experience"><span class="ko">경력</span><span class="en">Experience</span></a>
       <a href="#projects"><span class="ko">연구과제</span><span class="en">Projects</span></a>
       <a href="#publications"><span class="ko">논문</span><span class="en">Papers</span></a>
-      <a href="#patents"><span class="ko">특허·SW</span><span class="en">Patents</span></a>
-      <a href="#skills"><span class="ko">역량</span><span class="en">Skills</span></a>
+      <a href="#patents"><span class="ko">지식재산권</span><span class="en">IP</span></a>
+      <a href="#impact"><span class="ko">기술성과</span><span class="en">Impact</span></a>
+      <a href="#teaching"><span class="ko">교육</span><span class="en">Teaching</span></a>
+      <a href="#media"><span class="ko">언론</span><span class="en">Media</span></a>
       <a href="#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
     </div>
     <div class="lang-toggle">
@@ -389,11 +398,11 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
   </div>
 
   <div class="row">
-    <div class="row-period">2023 – <span class="ko">현재</span><span class="en">Present</span></div>
+    <div class="row-period">2023.04 – <span class="ko">현재</span><span class="en">Present</span></div>
     <div>
       <div class="row-title"><span class="ko">박사후연구원</span><span class="en">Postdoctoral Researcher</span></div>
       <div class="row-sub"><span class="ko">한국전자통신연구원(ETRI) 그린테크ADX연구실</span><span class="en">Green Tech ADX Research Section, ETRI</span></div>
-      <div class="row-detail"><span class="ko">ADX융합연구소 공공·산업ADX연구본부</span><span class="en">Public &amp; Industrial ADX Research Division, ADX Convergence Research Laboratory</span></div>
+      <div class="row-detail"><span class="ko">ADX융합연구소 공공·산업ADX연구본부 (구 디지털융합연구소 환경ICT연구실)</span><span class="en">Public &amp; Industrial ADX Research Division, ADX Convergence Research Laboratory (formerly Environmental ICT Research Section)</span></div>
     </div>
   </div>
 </section>
@@ -552,10 +561,9 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
 <section id="patents">
   <div class="section-header">
     <span class="section-num">05</span>
-    <span class="section-title"><span class="ko">특허 및 SW 등록</span><span class="en">Patents &amp; Software</span></span>
+    <span class="section-title"><span class="ko">지식재산권</span><span class="en">Intellectual Property</span></span>
   </div>
 
-  <div class="pub-group"><span class="ko">특허</span><span class="en">Patents</span></div>
   <div class="patent-item">
     <span class="patent-country us">US</span>
     <div>
@@ -583,8 +591,6 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
       <div class="patent-meta"><span class="ko">등록 10-1749706 · 2017.06.15</span><span class="en">Reg. No. 10-1749706 · 2017.06.15</span></div>
     </div>
   </div>
-
-  <div class="pub-group"><span class="ko">프로그램 저작권 등록</span><span class="en">Software Copyright Registrations</span></div>
   <div class="patent-item">
     <span class="patent-country sw">SW</span>
     <div>
@@ -608,10 +614,50 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
   </div>
 </section>
 
-<!-- 06 SKILLS -->
-<section id="skills">
+<!-- 06 IMPACT -->
+<section id="impact">
   <div class="section-header">
     <span class="section-num">06</span>
+    <span class="section-title"><span class="ko">기술 성과</span><span class="en">Technology Impact</span></span>
+  </div>
+
+  <div class="patent-item">
+    <span class="patent-country cert">TEST</span>
+    <div>
+      <div class="patent-name"><span class="ko">시험성적서 — 그린버튼 LLM 챗봇 분석 서비스 v1.0</span><span class="en">Test Report — Green Button LLM Chatbot Analytics Service v1.0</span></div>
+      <div class="patent-meta"><span class="ko">한국산업기술시험원(KTL) · 26-059233-01-1 · 2026.10 · 한국형 그린버튼 플랫폼 데이터분석 실증</span><span class="en">Korea Testing Laboratory (KTL) · 26-059233-01-1 · Oct 2026 · Korean Green Button platform data-analytics demonstration</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 TEACHING -->
+<section id="teaching">
+  <div class="section-header">
+    <span class="section-num">07</span>
+    <span class="section-title"><span class="ko">교육 및 멘토링</span><span class="en">Teaching &amp; Mentoring</span></span>
+  </div>
+
+  <div class="row">
+    <div class="row-period">2025.11</div>
+    <div>
+      <div class="row-title"><span class="ko">멘토</span><span class="en">Mentor</span></div>
+      <div class="row-sub"><span class="ko">고교-대학 연계 인재양성 및 동아리 운영사업</span><span class="en">High School–University Talent Development &amp; Student Club Program</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-period">2025.09</div>
+    <div>
+      <div class="row-title"><span class="ko">강사 · 경력개발 멘토링</span><span class="en">Instructor · Career Development Mentoring</span></div>
+      <div class="row-sub"><span class="ko">국가과학기술인력개발원(KIRD) 이공계 대학생 연구경력 탐색 과정 · 충남대학교</span><span class="en">KIRD Research Career Exploration Program for STEM Undergraduates · Chungnam National University</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">08</span>
     <span class="section-title"><span class="ko">기술 역량</span><span class="en">Skills</span></span>
   </div>
 
@@ -631,10 +677,25 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
   </div>
 </section>
 
-<!-- 07 CONTACT -->
+<!-- 09 MEDIA -->
+<section id="media">
+  <div class="section-header">
+    <span class="section-num">09</span>
+    <span class="section-title"><span class="ko">언론 보도</span><span class="en">Press</span></span>
+  </div>
+
+  <ul class="media-list">
+    <li><a href="https://www.kharn.kr/news/article.html?no=30368" target="_blank" rel="noopener">ETRI, 세계 최고 공정 최적화 FEMS 개발</a> <span>KHARN · 2026.03.29</span></li>
+    <li><a href="https://www.asiae.co.kr/article/2026032609581303958" target="_blank" rel="noopener">"에너지 효율·탄소저감 극대화" ETRI, 에너지관리 최적 기술 개발</a> <span>아시아경제 · 2026.03.26</span></li>
+    <li><a href="https://www.etnews.com/20260326000175" target="_blank" rel="noopener">ETRI, 산업현장 '에너지 최적화' 기술 개발...에너지 절감 15% 달성</a> <span>전자신문 · 2026.03.26</span></li>
+    <li><a href="https://www.heraldk.com/article/2026032516021238927" target="_blank" rel="noopener">"에너지·탄소 저감 효과 톡톡" ETRI, 산업현장 맞춤형 에너지 최적화기술 개발</a> <span>헤럴드경제 · 2026.03.25</span></li>
+  </ul>
+</section>
+
+<!-- 10 CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-num">07</span>
+    <span class="section-num">10</span>
     <span class="section-title"><span class="ko">연락처</span><span class="en">Contact</span></span>
   </div>
 
