@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>최진영 | Jinyoung Choi — HCI · Data Science</title>
-<meta name="description" content="Chungnam National University — Human-Computer Interaction, Data Science, Human Digital Twin, Mental Health">
+<title>최진영 | Jinyoung Choi — Energy AI · ETRI</title>
+<meta name="description" content="ETRI Postdoctoral Researcher — Energy AI, industrial energy data analytics, time series, digital twin">
 <meta property="og:title" content="최진영 | Jinyoung Choi">
-<meta property="og:description" content="충남대학교 · HCI, Data Science, Human Digital Twin, Mental Health">
+<meta property="og:description" content="ETRI 그린테크ADX연구실 · Energy AI &amp; Industrial Data Analytics">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,6 +160,19 @@ section { margin-bottom: 80px; scroll-margin-top: 76px; }
   color: var(--accent); border: 1px solid var(--border2); letter-spacing: 0.04em;
 }
 
+.row-list { margin: 6px 0 0 18px; font-size: 0.82rem; color: var(--secondary); line-height: 1.85; }
+
+/* ── PATENTS ── */
+.patent-item { display: grid; grid-template-columns: 52px 1fr; gap: 20px; padding: 14px 0; align-items: start; }
+.patent-country {
+  font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: #fff; background: var(--accent);
+  padding: 3px 8px; border-radius: 3px; text-align: center; letter-spacing: 0.05em;
+}
+.patent-country.us { background: #1565c0; }
+.patent-country.sw { background: var(--accent2); }
+.patent-name { font-size: 0.9rem; color: var(--text); font-weight: 400; line-height: 1.6; }
+.patent-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); margin-top: 4px; }
+
 /* ── PUBLICATIONS ── */
 .pub-stats { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 28px; }
 .stat {
@@ -190,6 +203,14 @@ section { margin-bottom: 80px; scroll-margin-top: 76px; }
   text-decoration: none; border: 1px solid var(--accent-mid); padding: 1px 8px;
 }
 .pub-link:hover { border-color: var(--accent); }
+
+.pub-list { margin: 0 0 0 22px; padding: 0; }
+.pub-list li { padding: 10px 0 10px 4px; border-bottom: 1px solid var(--border); font-size: 0.86rem; color: var(--muted); }
+.pub-list li:last-child { border-bottom: none; }
+.pl-title { color: var(--text); font-weight: 400; line-height: 1.55; margin-bottom: 2px; }
+.pl-meta { font-size: 0.78rem; color: var(--muted); line-height: 1.6; }
+.pl-meta b { font-weight: 500; color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+.pl-tag { font-family: var(--mono); font-size: 0.62rem; padding: 1px 7px; margin-left: 4px; border: 1px solid var(--border2); color: var(--accent); letter-spacing: 0.05em; white-space: nowrap; }
 
 /* ── AWARDS ── */
 .award-item {
@@ -253,10 +274,9 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
     <div class="nav-links">
       <a href="#education"><span class="ko">학력</span><span class="en">Education</span></a>
       <a href="#experience"><span class="ko">경력</span><span class="en">Experience</span></a>
+      <a href="#projects"><span class="ko">연구과제</span><span class="en">Projects</span></a>
       <a href="#publications"><span class="ko">논문</span><span class="en">Papers</span></a>
-      <a href="#projects"><span class="ko">연구</span><span class="en">Projects</span></a>
-      <a href="#awards"><span class="ko">수상</span><span class="en">Awards</span></a>
-      <a href="#talks"><span class="ko">발표</span><span class="en">Talks</span></a>
+      <a href="#patents"><span class="ko">특허·SW</span><span class="en">Patents</span></a>
       <a href="#skills"><span class="ko">역량</span><span class="en">Skills</span></a>
       <a href="#contact"><span class="ko">연락처</span><span class="en">Contact</span></a>
     </div>
@@ -270,12 +290,11 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
 <!-- HERO -->
 <div class="hero" id="top">
   <div class="hero-photo">
-    <!-- 사진이 생기면 아래 div 를 <img src="photo.jpg" alt="최진영 Jinyoung Choi"> 로 바꾸세요 -->
-    <div class="photo-placeholder">JC</div>
+    <img src="photo.jpg" alt="최진영 Jinyoung Choi">
     <div class="photo-overlay">
       <div class="photo-overlay-text">
-        <span class="ko">최진영<br>충남대학교</span>
-        <span class="en">Jinyoung Choi<br>Chungnam Nat'l Univ.</span>
+        <span class="ko">최진영 공학박사<br>ETRI</span>
+        <span class="en">Dr. Jinyoung Choi<br>ETRI</span>
       </div>
     </div>
   </div>
@@ -284,47 +303,58 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
     <div class="aff-badges">
       <div class="aff-badge">
         <span class="aff-dot"></span>
-        <span class="ko">충남대학교 <span class="todo">[소속 학과 · 직위]</span></span>
-        <span class="en">Chungnam National University · <span class="todo">[Dept. · Position]</span></span>
+        <span class="ko">한국전자통신연구원(ETRI) 박사후연구원</span>
+        <span class="en">Postdoctoral Researcher, ETRI</span>
+      </div>
+      <div class="aff-badge">
+        <span class="aff-dot"></span>
+        <span class="ko">ADX융합연구소 · 공공·산업ADX연구본부 · 그린테크ADX연구실</span>
+        <span class="en">Green Tech ADX Research Section · Public &amp; Industrial ADX Research Division · ADX Convergence Research Lab.</span>
       </div>
     </div>
 
     <h1><span class="ko">최진영</span><span class="en">Jinyoung Choi</span></h1>
     <div class="hero-sub">
-      <span class="ko">Jinyoung Choi · <span class="todo">[학위]</span></span>
-      <span class="en">최진영 · <span class="todo">[Degree]</span></span>
+      <span class="ko">Jinyoung Choi · 공학박사 · Energy AI &amp; Industrial Data Analytics</span>
+      <span class="en">최진영 · Ph.D. · Energy AI &amp; Industrial Data Analytics</span>
     </div>
     <div class="hero-divider"></div>
 
     <p class="hero-bio ko">
-      웨어러블·생체신호 데이터를 활용해 사람의 감정과 정신건강 상태를 이해하고 예측하는 연구를 합니다.
-      인간-컴퓨터 상호작용(HCI), 데이터 사이언스, 휴먼 디지털 트윈을 결합해 일상에서 쓰일 수 있는 정신건강 지원 기술을 만드는 것이 목표입니다.
+      산업 현장의 에너지 데이터를 AI로 분석해 에너지를 덜 쓰는 공장과 사업장을 만드는 연구를 합니다.
+      전력·열·가스 계측 데이터와 공정 데이터를 시계열 분석, 디지털 트윈, LLM 기술로 다루며,
+      공장에너지관리시스템(FEMS)과 한국형 그린버튼 플랫폼 과제에 참여하고 있습니다.
+      박사 과정에서는 웨어러블 생체신호로 노인의 우울 기분을 예측하는 연구를 했습니다.
     </p>
     <p class="hero-bio en">
-      I study how wearable and physiological signals can be used to understand and predict people's emotions and mental health.
-      My work combines human-computer interaction, data science, and human digital twins toward mental-health support that works in everyday life.
+      I apply AI to industrial energy data to help factories and facilities use less energy.
+      My work covers electricity, heat and gas metering data and process data, using time-series analysis, digital twins and LLMs,
+      through projects on factory energy management systems (FEMS) and Korea's Green Button platform.
+      My Ph.D. research predicted depressed mood in elderly people from wearable physiological signals.
     </p>
 
     <div class="hero-tags">
-      <span class="tag">Human-Computer Interaction</span>
-      <span class="tag">Data Science</span>
-      <span class="tag">Human Digital Twin</span>
-      <span class="tag">Machine Learning</span>
-      <span class="tag">Mental Health</span>
-      <span class="tag">Wearable Sensing</span>
+      <span class="tag">Energy AI</span>
+      <span class="tag">Time-Series Analytics</span>
+      <span class="tag">Industrial Energy Data</span>
+      <span class="tag">FEMS</span>
+      <span class="tag">Digital Twin</span>
+      <span class="tag">LLM Applications</span>
+      <span class="tag">Wearable Biosignal AI</span>
     </div>
 
     <div class="contact-grid">
       <span class="contact-label">Email</span>
-      <span class="contact-val todo">[이메일]@cnu.ac.kr</span>
+      <span class="contact-val"><a href="mailto:choij0@etri.re.kr">choij0@etri.re.kr</a></span>
+      <span class="contact-label">Tel</span>
+      <span class="contact-val">+82-42-860-5676</span>
       <span class="contact-label">Office</span>
-      <span class="contact-val"><span class="ko">충남대학교, 대전</span><span class="en">Chungnam National University, Daejeon, Korea</span></span>
+      <span class="contact-val"><span class="ko">ETRI 12동 506호, 대전</span><span class="en">Bldg. 12, Room 506, ETRI, Daejeon, Korea</span></span>
     </div>
 
     <div class="profile-btns">
       <a class="profile-btn" href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
-      <!-- 필요하면 추가: ORCID, GitHub, LinkedIn, CV PDF -->
-      <!-- <a class="profile-btn" href="cv.pdf" target="_blank">CV (PDF) ↓</a> -->
+      <a class="profile-btn" href="https://github.com/choij093" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
 </div>
@@ -339,19 +369,14 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
   </div>
 
   <div class="row">
-    <div class="row-period todo">20XX – 20XX</div>
+    <div class="row-period">2023</div>
     <div>
-      <div class="row-title"><span class="ko todo">[박사/석사] 컴퓨터공학</span><span class="en todo">[Ph.D./M.S.] in Computer Science and Engineering</span></div>
+      <div class="row-title"><span class="ko">공학박사, 컴퓨터공학</span><span class="en">Ph.D. in Computer Science &amp; Engineering</span></div>
       <div class="row-sub"><span class="ko">충남대학교</span><span class="en">Chungnam National University</span></div>
-      <div class="row-detail"><span class="ko">지도교수: 김형신 교수</span><span class="en">Advisor: Prof. Hyungshin Kim</span> · <span class="todo">[학위논문 제목]</span></div>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="row-period todo">20XX – 20XX</div>
-    <div>
-      <div class="row-title"><span class="ko todo">[학사] 전공</span><span class="en todo">[B.S.] Major</span></div>
-      <div class="row-sub todo">[학교]</div>
+      <div class="row-detail">
+        <span class="ko">학위논문: </span><span class="en">Dissertation: </span><i>Depressed Mood Prediction of Elderly People with a Wearable Band</i><br>
+        <span class="ko">지도교수: 김형신 교수</span><span class="en">Advisor: Prof. Hyungshin Kim</span>
+      </div>
     </div>
   </div>
 </section>
@@ -364,19 +389,51 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
   </div>
 
   <div class="row">
-    <div class="row-period todo">20XX – Present</div>
+    <div class="row-period">2023 – <span class="ko">현재</span><span class="en">Present</span></div>
     <div>
-      <div class="row-title todo">[직위 / Position]</div>
-      <div class="row-sub todo">[기관 / Organization]</div>
-      <div class="row-detail todo">[담당 업무 한두 줄]</div>
+      <div class="row-title"><span class="ko">박사후연구원</span><span class="en">Postdoctoral Researcher</span></div>
+      <div class="row-sub"><span class="ko">한국전자통신연구원(ETRI) 그린테크ADX연구실</span><span class="en">Green Tech ADX Research Section, ETRI</span></div>
+      <div class="row-detail"><span class="ko">ADX융합연구소 공공·산업ADX연구본부</span><span class="en">Public &amp; Industrial ADX Research Division, ADX Convergence Research Laboratory</span></div>
     </div>
   </div>
 </section>
 
-<!-- 03 PUBLICATIONS -->
-<section id="publications">
+<!-- 03 PROJECTS -->
+<section id="projects">
   <div class="section-header">
     <span class="section-num">03</span>
+    <span class="section-title"><span class="ko">연구과제</span><span class="en">Research Projects</span></span>
+  </div>
+
+  <div class="row">
+    <div class="row-period"><span class="ko">진행 중 (2026)</span><span class="en">Ongoing (2026)</span><br><span class="chip">ETRI</span></div>
+    <div>
+      <div class="row-title"><span class="ko">한국형 그린버튼 플랫폼 개발 및 구축</span><span class="en">Development and Deployment of a Korean Green Button Platform</span></div>
+      <div class="row-detail"><span class="ko">공공기관과 에너지 다소비 사업장의 전력·열·가스 실시간 산업 에너지미터 빅데이터 분석.</span><span class="en">Big-data analysis of real-time industrial energy meters (electricity, heat, gas) from public institutions and energy-intensive sites.</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-period">2023 – 2025<br><span class="chip">ETRI</span></div>
+    <div>
+      <div class="row-title"><span class="ko">에너지 다소비 업종 대상 맞춤형 공장에너지관리시스템(FEMS) 기술 개발 및 실증</span><span class="en">Customized Factory Energy Management System (FEMS) for Energy-Intensive Industries: Development and Demonstration</span></div>
+      <div class="row-detail"><span class="ko">공정 데이터와 에너지 데이터를 수집·분석하고, AI·시계열 분석·LLM·디지털 트윈 기술을 적용.</span><span class="en">Collected and analyzed process and energy data, applying AI, time-series analysis, LLMs and digital twins.</span></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="row-period">– 2023<br><span class="chip"><span class="ko">충남대학교</span><span class="en">CNU</span></span></div>
+    <div>
+      <div class="row-title"><span class="ko">웨어러블 생체신호 기반 감정 및 정신건강 예측</span><span class="en">Emotion and Mental-Health Prediction from Wearable Biosignals</span></div>
+      <div class="row-detail"><span class="ko">스마트폰 상황 정보와 웨어러블 기기의 심박(PPG·HRV) 데이터로 감정과 노인의 우울 기분을 예측하는 모델 연구 (박사 학위 연구).</span><span class="en">Models predicting emotion and depressed mood in elderly people from smartphone context and wearable heart-rate (PPG, HRV) data (Ph.D. research).</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">04</span>
     <span class="section-title"><span class="ko">논문</span><span class="en">Publications</span></span>
   </div>
 
@@ -387,6 +444,13 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
   </div>
 
   <div class="pub-group"><span class="ko">국제 학술지</span><span class="en">International Journals</span></div>
+  <div class="pub-card">
+    <div class="pub-title">Carbon-Conformal Manufacturing: Conformal Prediction-Guided Carbon Emission Optimization in Paper-Mill Energy Systems</div>
+    <div class="pub-meta">
+      <span class="pub-badge">SCIE</span>
+      <span class="pub-venue"><i>Applied Energy</i>, 2026</span>
+    </div>
+  </div>
   <div class="pub-card">
     <div class="pub-title"><a href="https://doi.org/10.3390/s22114174" target="_blank" rel="noopener">Depressed Mood Prediction of Elderly People with a Wearable Band</a></div>
     <div class="pub-authors"><b>J. Choi</b>, S. Lee, S. Kim, D. Kim, H. Kim</div>
@@ -411,93 +475,166 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
 
   <div class="pub-group"><span class="ko">국제 학술대회</span><span class="en">International Conferences</span></div>
   <div class="pub-card">
+    <div class="pub-title">Modeling of Reducing Steam Energy in Papermaking</div>
+    <div class="pub-authors"><b>J. Choi</b>, et al.</div>
+    <div class="pub-meta">
+      <span class="pub-badge conf">CONF</span>
+      <span class="pub-venue">Int'l Conference on Information and Communication Technology Convergence (ICTC), 2024</span>
+    </div>
+  </div>
+  <div class="pub-card">
     <div class="pub-title">Extending App Pre-Launch Service with Emotion Context</div>
     <div class="pub-authors"><b>J. Choi</b>, J. Lee, H. Kim</div>
     <div class="pub-meta">
       <span class="pub-badge conf">CONF</span>
-      <span class="pub-venue">Proc. 2nd Int'l Conference on Internet of Things, Data and Cloud Computing (ICC), 2017</span>
+      <span class="pub-venue">Proc. 2nd Int'l Conference on Internet-of-Things Design and Implementation (IoTDI), 2017</span>
       <span class="pub-cite">cited 1</span>
     </div>
   </div>
 
+  <div class="pub-group"><span class="ko">국내 학술대회</span><span class="en">Domestic Conferences</span></div>
+  <ol class="pub-list" reversed>
+    <li>
+      <div class="pl-title">Conformal Prediction을 이용한 제지공정 수분 Surrogate의 보장률 검증: 영역별 불균형과 Mondrian CP 기반 해소</div>
+      <div class="pl-meta">M. Baek, G. Gil, Y. Jang, J. Yoo, S. Lee, Y. Doh, <b>J. Choi</b>, S. Lee · 한국통신학회 하계종합학술발표회, 2026 <span class="pl-tag">Poster</span></div>
+    </li>
+    <li>
+      <div class="pl-title">LLM 지식 증류 경량 보상 모델을 활용한 제지 공정 자율 운전 강화학습 프레임워크</div>
+      <div class="pl-meta">G. Gil, M. Baek, Y. Jang, S. Lee, J. Yoo, <b>J. Choi</b>, Y. Doh, S. Lee · 한국통신학회 하계종합학술발표회, 2026 <span class="pl-tag">Poster</span></div>
+    </li>
+    <li>
+      <div class="pl-title">제지공정 강화학습 안전제어를 위한 데이터 기반 운전 영역 정량화 및 품질 영향 분석</div>
+      <div class="pl-meta">M. Baek, J. Yoo, G. Gil, S. Lee, Y. Jang, Y. Doh, <b>J. Choi</b>, S. Lee · 한국통신학회 동계종합학술발표회, 2026 <span class="pl-tag">Poster</span></div>
+    </li>
+    <li>
+      <div class="pl-title">실시간 제지 공정 운영 효율화를 위한 LLM과 RAG 기반 대화형 AI 어시스턴트 설계</div>
+      <div class="pl-meta">G. Gil, S. Lee, M. Baek, J. Yoo, <b>J. Choi</b>, Y. Doh, S. Lee · 한국통신학회 추계종합학술발표회, 2025 <span class="pl-tag">Talk</span></div>
+    </li>
+    <li>
+      <div class="pl-title">강화학습 기반 제지 공정 자율 운전: 초기 안정화 가속화 전략</div>
+      <div class="pl-meta">M. Baek, J. Yoo, G. Gil, S. Lee, Y. Doh, <b>J. Choi</b>, S. Lee · 한국통신학회 추계종합학술발표회, 2025 <span class="pl-tag">Talk</span></div>
+    </li>
+    <li>
+      <div class="pl-title">제지공정 변동성 반영을 위한 Neural SDE 기반 강화학습 연구</div>
+      <div class="pl-meta">D. Yu, S. Lee, Y. Doh, <b>J. Choi</b> · 제6회 한국인공지능학술대회, 2025 <span class="pl-tag">Talk</span></div>
+    </li>
+    <li>
+      <div class="pl-title">에너지 절감을 위한 GNN 기반 제지공정 분석 및 시계열 예측</div>
+      <div class="pl-meta">S. Kim, et al., <b>J. Choi</b>* · 제5회 한국인공지능학술대회, 2024 <span class="pl-tag"><span class="ko">교신저자</span><span class="en">Corresponding</span></span></div>
+    </li>
+    <li>
+      <div class="pl-title">통계적 기법을 활용한 계절 기반 제지공정 분석</div>
+      <div class="pl-meta">S. Park, et al., <b>J. Choi</b>* · 제5회 한국인공지능학술대회, 2024 <span class="pl-tag"><span class="ko">교신저자</span><span class="en">Corresponding</span></span></div>
+    </li>
+    <li>
+      <div class="pl-title">제지 공정 생산관리시스템의 이상 데이터 자동 수집을 위한 랜덤 포레스트 기반 이상 발생 공정 및 이상 원인 분류</div>
+      <div class="pl-meta">H. Son, et al., <b>J. Choi</b> · 제5회 한국인공지능학술대회, 2024</div>
+    </li>
+    <li>
+      <div class="pl-title">제지공정 에너지 절감을 위한 초지공정 스팀에너지 모델링 연구</div>
+      <div class="pl-meta"><b>J. Choi</b>, Y. Doh, B. Jung, S. Lee · 한국통신학회 하계종합학술발표회, 2024 <span class="pl-tag">Talk</span></div>
+    </li>
+    <li>
+      <div class="pl-title">A Study on Safe Fly by Using Heartrate from Smart Device</div>
+      <div class="pl-meta"><b>J. Choi</b>, Y. Choi, H. Kim · Proc. of the Korea Navigation Institute, 2016</div>
+    </li>
+    <li>
+      <div class="pl-title">Design of Emotion Prediction Model based on Smartphone Context and Smartwatch's Heartrate</div>
+      <div class="pl-meta"><b>J. Choi</b>, J. Lee, H. Kim · Proc. of the Korea Society of Computer and Information (KSCI), 2015</div>
+    </li>
+  </ol>
   <p class="section-note">
     <span class="ko">인용 수는 Google Scholar 기준 (2026년 10월). 전체 목록은 </span><span class="en">Citation counts from Google Scholar (Oct 2026). Full list on </span><a href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar</a><span class="ko">에서 볼 수 있습니다.</span><span class="en">.</span>
   </p>
 </section>
 
-<!-- 04 PROJECTS -->
-<section id="projects">
-  <div class="section-header">
-    <span class="section-num">04</span>
-    <span class="section-title"><span class="ko">연구 프로젝트</span><span class="en">Research Projects</span></span>
-  </div>
-
-  <div class="row">
-    <div class="row-period"><span class="todo">20XX – 20XX</span><br><span class="chip todo">[지원기관]</span></div>
-    <div>
-      <div class="row-title todo">[과제명]</div>
-      <div class="row-detail todo">[역할 및 주요 내용 한두 줄]</div>
-    </div>
-  </div>
-</section>
-
-<!-- 05 AWARDS -->
-<section id="awards">
+<!-- 05 PATENTS -->
+<section id="patents">
   <div class="section-header">
     <span class="section-num">05</span>
-    <span class="section-title"><span class="ko">수상</span><span class="en">Awards &amp; Honors</span></span>
+    <span class="section-title"><span class="ko">특허 및 SW 등록</span><span class="en">Patents &amp; Software</span></span>
   </div>
 
-  <div class="award-item">
-    <span class="award-year todo">20XX</span>
-    <span class="award-name todo">[수상명]</span>
-    <span class="award-org todo">[수여기관]</span>
-  </div>
-</section>
-
-<!-- 06 TALKS & SERVICE -->
-<section id="talks">
-  <div class="section-header">
-    <span class="section-num">06</span>
-    <span class="section-title"><span class="ko">발표 및 활동</span><span class="en">Talks &amp; Service</span></span>
-  </div>
-
-  <div class="row">
-    <div class="row-period todo">20XX.XX</div>
+  <div class="pub-group"><span class="ko">특허</span><span class="en">Patents</span></div>
+  <div class="patent-item">
+    <span class="patent-country us">US</span>
     <div>
-      <div class="row-title todo">[발표/강연/심사/조교 활동 제목]</div>
-      <div class="row-sub todo">[행사 · 기관]</div>
+      <div class="patent-name">Method and Apparatus for Managing Paper-Making Process Using Digital Twin</div>
+      <div class="patent-meta">J. Choi, S. Lee · <span class="ko">출원</span><span class="en">Appl. No.</span> 19/446,519 · 2026.01.12</div>
+    </div>
+  </div>
+  <div class="patent-item">
+    <span class="patent-country">KR</span>
+    <div>
+      <div class="patent-name">
+        <span class="ko">디지털 트윈을 이용하여 초지 공정을 관리하는 방법 및 장치</span>
+        <span class="en">Method and apparatus for managing a paper-making process using a digital twin</span>
+      </div>
+      <div class="patent-meta"><span class="ko">최진영, 이상금 · 출원 10-2025-0011452 · 2025.01.24</span><span class="en">J. Choi, S. Lee · Appl. No. 10-2025-0011452 · 2025.01.24</span></div>
+    </div>
+  </div>
+  <div class="patent-item">
+    <span class="patent-country">KR</span>
+    <div>
+      <div class="patent-name">
+        <span class="ko">사용자 장치를 사용하여 획득된 상황 정보 및 생체 정보를 기반으로 사용자의 감정을 예측하는 방법 및 시스템</span>
+        <span class="en">Method and system for predicting a user's emotion based on context and biometric information acquired with a user device</span>
+      </div>
+      <div class="patent-meta"><span class="ko">등록 10-1749706 · 2017.06.15</span><span class="en">Reg. No. 10-1749706 · 2017.06.15</span></div>
+    </div>
+  </div>
+
+  <div class="pub-group"><span class="ko">프로그램 저작권 등록</span><span class="en">Software Copyright Registrations</span></div>
+  <div class="patent-item">
+    <span class="patent-country sw">SW</span>
+    <div>
+      <div class="patent-name"><span class="ko">제지공정 맞춤 대화형 프레임워크</span><span class="en">Conversational AI framework for paper-making processes</span></div>
+      <div class="patent-meta"><span class="ko">한국저작권위원회 C-2026-009371 · 2026.02.23</span><span class="en">Korea Copyright Commission C-2026-009371 · 2026.02.23</span></div>
+    </div>
+  </div>
+  <div class="patent-item">
+    <span class="patent-country sw">SW</span>
+    <div>
+      <div class="patent-name"><span class="ko">제지 공정 맞춤형 스팀 에너지 최적화 서비스</span><span class="en">Steam energy optimization service for paper-making processes</span></div>
+      <div class="patent-meta"><span class="ko">한국저작권위원회 C-2026-004331 · 2026.01.20</span><span class="en">Korea Copyright Commission C-2026-004331 · 2026.01.20</span></div>
+    </div>
+  </div>
+  <div class="patent-item">
+    <span class="patent-country sw">SW</span>
+    <div>
+      <div class="patent-name"><span class="ko">제지공정 스팀&amp;회수열 인공지능&amp;물리모델링 프로그램</span><span class="en">AI and physics-based modeling program for steam and heat recovery in paper-making</span></div>
+      <div class="patent-meta"><span class="ko">한국저작권위원회 C-2024-038254 · 2024.10.22</span><span class="en">Korea Copyright Commission C-2024-038254 · 2024.10.22</span></div>
     </div>
   </div>
 </section>
 
-<!-- 07 SKILLS -->
+<!-- 06 SKILLS -->
 <section id="skills">
   <div class="section-header">
-    <span class="section-num">07</span>
+    <span class="section-num">06</span>
     <span class="section-title"><span class="ko">기술 역량</span><span class="en">Skills</span></span>
   </div>
 
   <div class="skill-grid">
     <div class="skill-block">
-      <div class="skill-label">Research</div>
-      <div class="skill-list">Physiological signal processing (PPG, HRV) · Emotion recognition · Mental-health prediction · User studies</div>
+      <div class="skill-label">Energy &amp; Industrial Data</div>
+      <div class="skill-list">Energy metering data (electricity · heat · gas) · Process data · FEMS · Green Button</div>
     </div>
     <div class="skill-block">
-      <div class="skill-label">Programming</div>
-      <div class="skill-list todo">[Python, PyTorch, ...]</div>
+      <div class="skill-label">AI &amp; Analytics</div>
+      <div class="skill-list">Time-series analysis · Machine learning · LLM applications · Digital twin</div>
     </div>
     <div class="skill-block">
-      <div class="skill-label">Languages</div>
-      <div class="skill-list"><span class="ko">한국어 (모국어) · 영어</span><span class="en">Korean (native) · English</span></div>
+      <div class="skill-label">Biosignal &amp; HCI</div>
+      <div class="skill-list">PPG / HRV analysis · Emotion recognition · Wearable sensing · User studies</div>
     </div>
   </div>
 </section>
 
-<!-- 08 CONTACT -->
+<!-- 07 CONTACT -->
 <section id="contact">
   <div class="section-header">
-    <span class="section-num">08</span>
+    <span class="section-num">07</span>
     <span class="section-title"><span class="ko">연락처</span><span class="en">Contact</span></span>
   </div>
 
@@ -505,15 +642,17 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
     <div>
       <div class="contact-block-label">Address</div>
       <div class="contact-block-content">
-        <span class="ko">34134 대전광역시 유성구 대학로 99<br>충남대학교 <span class="todo">[건물 · 호실]</span></span>
-        <span class="en">99 Daehak-ro, Yuseong-gu, Daejeon 34134, Korea<br>Chungnam National University, <span class="todo">[Bldg · Room]</span></span>
+        <span class="ko">34129 대전광역시 유성구 가정로 218<br>한국전자통신연구원 12동 506호</span>
+        <span class="en">Bldg. 12, Room 506, ETRI<br>218 Gajeong-ro, Yuseong-gu, Daejeon 34129, Korea</span>
       </div>
     </div>
     <div>
       <div class="contact-block-label">Online</div>
       <div class="contact-block-content">
-        Email · <span class="todo">[이메일]@cnu.ac.kr</span><br>
-        <a href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a>
+        Email · <a href="mailto:choij0@etri.re.kr">choij0@etri.re.kr</a><br>
+        Tel · +82-42-860-5676<br>
+        <a href="https://scholar.google.com/citations?hl=ko&amp;user=46GFaVIAAAAJ" target="_blank" rel="noopener">Google Scholar ↗</a> ·
+        <a href="https://github.com/choij093" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
   </div>
@@ -523,7 +662,7 @@ body.lang-en span.ko { display: none; } body.lang-en span.en { display: inline; 
 
 <footer>
   <div class="footer-name"><span class="ko">최진영</span><span class="en">Jinyoung Choi</span></div>
-  <div class="footer-copy">© 2026 · Chungnam National University</div>
+  <div class="footer-copy">© 2026 · ETRI</div>
 </footer>
 
 <script>
